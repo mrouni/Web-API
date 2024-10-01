@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Covid DB: Insert vitals</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+		</script>  
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+		</script>  
+		
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+			rel="stylesheet" type="text/css" />  
+					
+	</head>
+	<body>
+    {% include 'global.html' %}	
+		<div  class="content">
+			<form action="{{ url_for('insert_vitals') }}" method="post">
+				
+				  <div style = "width:50%" class="container">
+					{% if msg %}
+					<div class="msg">{{ msg }}</div>
+					{% endif %}
+					<br>
+
+					<label class='form-label' for="amka"><b>AMKA</b></label>
+					<input class = 'form-control' type="text" placeholder="" name="amka" id="amka" required>
+
+					<label class='form-label' for="temperature"><b>Temperature</b></label>
+					<input class = 'form-control' type="text" placeholder="" name="temperature" id="temperature">
+
+					<label class='form-label' for="respiration_rate"><b>Respiration Rate</b></label>
+					<input class = 'form-control' type="text" placeholder="" name="respiration_rate" id="respiration_rate">
+
+
+					<label class='form-label' for="systolic_pressure"><b>Systolic Pressure</b></label>
+					<input class = 'form-control' type="text" placeholder="" name="systolic_pressure" id="systolic_pressure">
+
+
+					<label class='form-label' for="diastolic_pressure"><b>Diastolic Pressure</b></label>
+					<input class = 'form-control' type="text" placeholder="" name="diastolic_pressure" id="diastolic_pressure">
+
+					<label class='form-label' for="heart_rate"><b>Heart Rate</b></label>
+					<input class = 'form-control' type="text" placeholder="" name="heart_rate" id="heart_rate">
+
+					<label class='form-label' for="spo2"><b>SpO2</b></label>
+					<input class = 'form-control' type="text" placeholder="" name="spo2" id="spo2">
+					
+					<hr>
+
+					<button class = 'btn btn-secondary' type="submit">Submit</button>
+					
+					
+					
+				  </div>
+
+
+			</form>
+				
+			
+			
+		</div>
+		
+		
+				<script>
+		  $( function() {
+			var availableTags = [{% for lan in vAMKA %} "{{lan}}",{% endfor %} ];			
+			$( "#amka" ).autocomplete({
+			  source: availableTags,minLength: 2,			  
+			});
+		  } );
+		  </script>
+		
+		
+		
+		
+	</body>
+</html>

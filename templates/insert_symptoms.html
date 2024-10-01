@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Covid DB: Insert vitals</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT-14WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">		
+	</head>
+	<body>
+    {% include 'global.html' %}
+		<div  class="content">
+			<form action="{{ url_for('insert_symptoms') }}" method="post">
+				
+				  <div style = "width:50%" class="container">
+				  
+					{% if msg %}
+					<div class="msg">{{ msg }}</div>
+					{% endif %}
+					<h1>Symptoms Questionary</h1>
+					<hr>
+
+					<!--<label  for="q01"><b>Do you have a fever?</b></label>
+					<input class = 'form-control' type="text" placeholder="" name="q01" id="q01" required> 
+					<select name="q01" id="q01"></select>
+					<option value="q01_no">No</option>
+					<option value="q01_yes">Yes</option>-->
+					  <b>Do you have a fever?</b>
+					  <input type="radio" id="Q01no" name="Q01" value="0">
+					  <label for="Q01no">No</label>
+					  <input type="radio" id="Q01yes" name="Q01" value="1">
+					  <label for="Q01yes">Yes</label><br>
+					  <input type="hidden" name="Q01" value="-1" />
+					  <br>
+					
+					  <b>Do you have a persistent cough?</b>
+					  <input type="radio" id="Q02no" name="Q02" value="0">
+					  <label for="Q02no">No</label>
+					  <input type="radio" id="Q02yes" name="Q02" value="1">
+					  <label for="Q02yes">Yes</label><br>
+					  <input type="hidden" name="Q02" value="-1" />					
+					  <br>
+					
+					  <b>Do you experience unusual fatigue?</b>					
+					  <input type="radio" id="Q03no" name="Q03" value="0">
+					  <label for="Q03no">No</label>
+					  <input type="radio" id="Q03yes" name="Q03" value="1">
+					  <label for="Q03yes">Yes</label><br>
+					  <input type="hidden" name="Q03" value="-1" />					
+					  <br>
+					
+					
+					  <b>Do you experience shortness of breath?</b>
+					  <input type="radio" id="Q04no" name="Q04" value="0">
+					  <label for="Q04no">No</label>
+					  <input type="radio" id="Q04yes" name="Q04" value="1">
+					  <label for="Q04yes">Yes</label><br>					
+					  <input type="hidden" name="Q04" value="-1" />					
+					  <br>
+
+					  <b>Do you have a headache?</b>					
+					  <input type="radio" id="Q05no" name="Q05" value="0">
+					  <label for="Q05no">No</label>
+					  <input type="radio" id="Q05yes" name="Q05" value="1">
+					  <label for="Q05yes">Yes</label><br>
+					  <input type="hidden" name="Q05" value="-1" />					
+					  <br>
+							
+                      <b>Do you have diarrhea?</b>					
+					  <input type="radio" id="Q06no" name="Q06" value="0">
+					  <label for="Q06no">No</label>
+					  <input type="radio" id="Q06yes" name="Q06" value="1">
+					  <label for="Q06yes">Yes</label><br>
+					  <input type="hidden" name="Q06" value="-1" />					
+					  <br>
+					
+					
+                      <b>Do you experience anosmia or tastelessness?</b>					
+					  <input type="radio" id="Q07no" name="Q07" value="0">
+					  <label for="Q07no">No</label>
+					  <input type="radio" id="Q07yes" name="Q07" value="1">
+					  <label for="Q07yes">Yes</label><br>					
+					  <input type="hidden" name="Q07" value="-1" />					
+					  <br>
+		
+
+					<button class = 'btn btn-secondary' type="submit">Submit</button>
+				  </div>
+
+
+			</form>
+				
+			
+			
+		</div>
+	</body>
+</html>
